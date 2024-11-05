@@ -20,9 +20,12 @@ const DragSimulator = {
     const commonOptions = omit(options, ['source', 'target'])
     const source = { ...commonOptions, ...options.source }
     const target = { ...commonOptions, ...options.target }
-    return { source, target }
+    return { source, target, ...commonOptions }
   },
   get dropped() {
+    if (this.options.skipDroppedCheck) {
+      return true
+    }
     const currentSourcePosition = this.source.getBoundingClientRect()
     return !this.rectsEqual(this.initialSourcePosition, currentSourcePosition)
   },

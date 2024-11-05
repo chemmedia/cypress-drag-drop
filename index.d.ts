@@ -8,6 +8,7 @@ type LocationOptions = {
 type Options = Partial<Cypress.ClickOptions & {
   source: Cypress.ClickOptions | LocationOptions
   target: Cypress.ClickOptions | LocationOptions
+  skipDroppedCheck: boolean
 }>
 
 type MoveOptions = Partial<Cypress.ClickOptions & {
